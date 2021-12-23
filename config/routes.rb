@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   post 'message', to: 'messages#create'
+  get 'message', to: 'messages#create'
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 
    mount ActionCable.server, at: '/cable'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
